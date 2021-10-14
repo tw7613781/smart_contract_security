@@ -8,7 +8,7 @@ contract EtherStore {
 	}
 
 	function withdraw(uint _amount) public {
-		require(balances[msg.sender] >= _amount);
+		require(balances[msg.sender] >= _amount, "Not enough balance to be withdraw");
 		
 		(bool sent,) = msg.sender.call{value: _amount}("");
 		require(sent, "Failed to send Ether");
@@ -54,7 +54,7 @@ contract EtherStoreSecure1 {
 	}
 
 	function withdraw(uint _amount) public {
-		require(balances[msg.sender] >= _amount);
+		require(balances[msg.sender] >= _amount, "Not enough balance to be withdraw");
 		
 		balances[msg.sender] -= _amount;
 
@@ -84,7 +84,7 @@ contract EtherStoreSecure2 {
 	}
 
 	function withdraw(uint _amount) public noReentrant {
-		require(balances[msg.sender] >= _amount);
+		require(balances[msg.sender] >= _amount, "Not enough balance to be withdraw");
 		
 		(bool sent,) = msg.sender.call{value: _amount}("");
 		require(sent, "Failed to send Ether");
