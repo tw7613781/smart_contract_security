@@ -21,7 +21,7 @@ contract EtherStore {
 	}
 }
 
-contract Attack {
+contract ReentrancyAttack {
 	EtherStore public etherStore;
 
 	constructor(address _etherStoreAddress) public {

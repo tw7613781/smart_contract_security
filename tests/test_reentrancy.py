@@ -22,8 +22,8 @@ def etherStore(EtherStore, alice, bob):
     return etherStore
 
 @pytest.fixture
-def attack(Attack, etherStore, alice):
-    return Attack.deploy(etherStore.address, {'from': alice})
+def attack(ReentrancyAttack, etherStore, alice):
+    return ReentrancyAttack.deploy(etherStore.address, {'from': alice})
 
 @pytest.fixture
 def etherStoreSecure1(EtherStoreSecure1, alice, bob):
@@ -34,8 +34,8 @@ def etherStoreSecure1(EtherStoreSecure1, alice, bob):
     return etherStoreSecure1
 
 @pytest.fixture
-def attack1(Attack, etherStoreSecure1, alice):
-    return Attack.deploy(etherStoreSecure1.address, {'from': alice})
+def attack1(ReentrancyAttack, etherStoreSecure1, alice):
+    return ReentrancyAttack.deploy(etherStoreSecure1.address, {'from': alice})
 
 @pytest.fixture
 def etherStoreSecure2(EtherStoreSecure2, alice, bob):
@@ -46,8 +46,8 @@ def etherStoreSecure2(EtherStoreSecure2, alice, bob):
     return etherStoreSecure2
 
 @pytest.fixture
-def attack2(Attack, etherStoreSecure2, alice):
-    return Attack.deploy(etherStoreSecure2.address, {'from': alice})
+def attack2(ReentrancyAttack, etherStoreSecure2, alice):
+    return ReentrancyAttack.deploy(etherStoreSecure2.address, {'from': alice})
 
 
 def test_normal_usage(etherStore, eve):
