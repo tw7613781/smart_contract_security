@@ -16,7 +16,7 @@ repeatedly calling some certain functions
 
 uint256 range from `[0, 2**256 - 1]`, the solidity natively doesn't handle overflow or underflow error. if exceeds the maximum number, the result will go from the begin. for example. `2**256 - 1 + 1 = 0`
 
-> Arithmetic operations revert on underflow and overflow. You can use unchecked { ... } to use the previous wrapping behaviour. Checks for overflow are very common, so we made them the default to increase readability of code, even if it comes at a slight increase of gas costs.
+> Solidity 0.8 release notes: Arithmetic operations revert on underflow and overflow. You can use unchecked { ... } to use the previous wrapping behaviour. Checks for overflow are very common, so we made them the default to increase readability of code, even if it comes at a slight increase of gas costs.
 
 ## How to run the test
 
