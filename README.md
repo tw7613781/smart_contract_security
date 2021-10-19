@@ -28,13 +28,19 @@ selfdestruct(address payable _to)
 
 ## How to run the test
 
-prerequisite: brownie framwork
+prerequisite: Poetry
 
 ```
-brownie test
+# create virtual env and install dependencies
+poetry install
+
+# go into virtual env 
+poetry shell
+# or
+source {path_to_venv}/bin/activate
 ```
 
-could see the debug info with -s
 ```
-brownie test -s
+# -s could see debug info
+<venv>brownie test [-s]
 ```
