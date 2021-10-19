@@ -84,3 +84,12 @@ contract TimeLockSecure {
         require(sent, "Failed to send Ether");
     }
 }
+
+contract OverflowIntermediateValue {
+    using SafeMath for uint;
+
+    function testOverflow() public pure returns (uint){
+        uint max_uint = 2 ** 256 - 1;
+        return max_uint.add(2).sub(3);
+    }
+}

@@ -25,6 +25,13 @@ def timeLockSecure(TimeLockSecure, alice):
 def attackSecure(OverflowAttack, timeLockSecure, alice):
     return OverflowAttack.deploy(timeLockSecure, {'from': alice})
 
+@pytest.fixture
+def overflowIntermediateValue(OverflowIntermediateValue, alice):
+    return OverflowIntermediateValue.deploy({'from': alice})
+
+@pytest.fixture
+def overflowIntermediateValueV0_8(OverflowIntermediateValueV0_8, alice):
+    return OverflowIntermediateValueV0_8.deploy({'from': alice})
 
 def test_normal_useage(timeLock, alice):
     timeLock.deposit({'from': alice, 'value': '1 ether'})
@@ -39,3 +46,11 @@ def test_attack(attack, alice):
 def test_attackSecure(attackSecure, alice):
     with brownie.reverts('SafeMath: addition overflow'):
         attackSecure.attack({'from': alice, 'value': '1 ether'})
+
+def test_intermidiateOverflow(overflowIntermediateValue):
+    with brownie.reverts('SafeMath: addition overflow'):
+        overflowIntermediateValue.testOverflow()
+
+def test_intermidiateOverflow0_8(overflowIntermediateValueV0_8):
+    with brownie.reverts():
+        overflowIntermediateValueV0_8.testOverflow()
