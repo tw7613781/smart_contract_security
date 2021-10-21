@@ -7,6 +7,7 @@ authors = ["Tang Wei <wei.tang@coinflex.com>"]
 [tool.poetry.dependencies]
 python = "3.8"
 eth-brownie = "^1.17.0"
+hexbytes = "^0.2.2"
 
 [tool.poetry.dev-dependencies]
 
