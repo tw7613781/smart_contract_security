@@ -32,6 +32,16 @@ though private data can't be read directly by other contract or web3 API, the wh
 
 contract stores it's state variables in order to the EMV storage, which is a list of 32 bytes long consecutive slots (space). The details please check the `PrivateData.sol` 
 
+- delegatecall
+
+there are two principles when create delegatecall function
+
+1. run your code inside my context (storage, msg.sender, msg.value, msg.data, etc...)
+
+2. storage layout must be the same for A and B.
+
+if violate the two principles, it's easy to create bugs. 
+
 ## How to run the test
 
 prerequisite: Poetry
