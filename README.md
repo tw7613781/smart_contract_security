@@ -46,6 +46,10 @@ if violate the two principles, it's easy to create bugs.
 
 don't use hash of block.number or block.timestamp as random number. 
 
+- Denial Of Service
+
+The contract logic should be anti-error, meaning even there is a error occurred, the logic should not be affected. 
+
 ## How to run the test
 
 prerequisite: Poetry

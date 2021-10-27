@@ -1,5 +1,4 @@
 import pytest
-from brownie.network import web3
 
 @pytest.fixture(scope='module')
 def alice(accounts):
