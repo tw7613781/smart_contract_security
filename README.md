@@ -50,6 +50,15 @@ don't use hash of block.number or block.timestamp as random number.
 
 The contract logic should be anti-error, meaning even there is a error occurred, the logic should not be affected. 
 
+- Phishing with tx.origin
+
+Be careful when using `tx.origin`. The difference with msg.sender is like below
+
+```
+Alice => Wallet.transfer() (tx.origin = Alice)
+Alice => Eve's malicious contract => Wallet.transfer() (tx.origin = Alice)
+```
+
 ## How to run the test
 
 prerequisite: Poetry
