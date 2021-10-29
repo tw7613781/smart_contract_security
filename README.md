@@ -59,6 +59,10 @@ Alice => Wallet.transfer() (tx.origin = Alice)
 Alice => Eve's malicious contract => Wallet.transfer() (tx.origin = Alice)
 ```
 
+- Honeypot
+
+By using hide code and reentrancy vulnerability, the hunter can make a contract to catch hacker. Be careful to verify all contract addresses included in target contract.
+
 ## How to run the test
 
 prerequisite: Poetry
